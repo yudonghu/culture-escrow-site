@@ -22,7 +22,7 @@ export const tools: ToolItem[] = [
     name: 'PG17',
     slug: 'pg17',
     desc: 'California RPA page 17 fill tool for escrow workflows.',
-    href: 'https://app.hydenluc.com',
+    href: 'https://hydenluc.com/pg17',
     status: 'Live',
     category: 'Document / Escrow',
     availability: 'open',
