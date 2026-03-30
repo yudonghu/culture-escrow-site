@@ -1,0 +1,48 @@
+import Breadcrumb from '@/components/Breadcrumb'
+import { tools } from '@/data/tools'
+import { portalCopy, type PortalLang } from '@/lib/portal-copy'
+
+const statusClassMap = { Live: 'badge badge-live', Planned: 'badge badge-planned', 'Internal Test': 'badge badge-test' }
+
+export default async function LocalizedDailyToolsPage({ params }: { params: Promise<{ lang: PortalLang }> }) {
+  const { lang } = await params
+  const t = portalCopy[lang] ?? portalCopy.en
+
+  const totalTools = tools.length
+  const liveCount = tools.filter((tool) => tool.status === 'Live').length
+  const internalTestCount = tools.filter((tool) => tool.status === 'Internal Test').length
+  const plannedCount = tools.filter((tool) => tool.status === 'Planned').length
+
+  return (
+    <section className="hero">
+      <Breadcrumb items={[{ label: t.breadcrumbHome, href: `/${lang}` }, { label: t.dailyTools }]} />
+      <div className="hero-panel"><div className="hero-content"><h1 className="section-title">{t.dailyTools}</h1><p>{t.overviewDesc}</p></div></div>
+      <div className="card-grid" style={{ marginBottom: 24 }}>
+        <div className="card"><h2>{t.metrics.total}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{totalTools}</p></div>
+        <div className="card"><h2>{t.metrics.live}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{liveCount}</p></div>
+        <div className="card"><h2>{t.metrics.test}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{internalTestCount}</p></div>
+        <div className="card"><h2>{t.metrics.planned}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{plannedCount}</p></div>
+      </div>
+      <div className="card info-panel" style={{ marginBottom: 24 }}><h2>{t.currentPhaseTitle}</h2><p>{t.currentPhaseDesc}</p></div>
+      <div className="card-grid">
+        {tools.map((tool) => {
+          const openable = tool.availability === 'open'
+          return (
+            <div key={tool.name} className="card">
+              <div className="badge-row">
+                <span className={statusClassMap[tool.status]}>{tool.status}</span>
+                <span className="badge">{tool.category}</span>
+              </div>
+              <h2>{tool.icon} {tool.name}</h2>
+              <p>{tool.desc}</p>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                {openable ? <a className="cta-link" href={tool.href}>{t.openTool}</a> : <span className="cta-link" style={{ opacity: 0.5 }}>{t.comingSoon}</span>}
+                <a className="cta-link" href={`/${lang}/tools/${tool.slug}`}>{t.viewDetails}</a>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
