@@ -1,41 +1,35 @@
-# Culture Escrow Inc. 多语言展示站（本地预览版）
+# Culture Escrow Portal
 
-## 语言结构
-- 英文（主语言）：`/en/`
-- 中文简体：`/zh-cn/`
-- 中文繁体：`/zh-tw/`
+Culture Escrow Portal is the evolving unified website + internal tools entry project for Culture Escrow.
 
-根路径 `index.html` 会自动跳转到英文首页 `/en/index.html`。
+## Current Stage
+This project is currently in **Portal v1 consolidation** stage.
 
-## 页面（每种语言）
-- 首页 `index.html`
-- 公司背景及理念 `about.html`
-- 服务 `services.html`
-- 员工介绍 `team.html`
-- 联系我们 `contact.html`
+### Public Website
+The following pages are public-facing and remain openly accessible:
+- Home
+- About
+- Services
+- Team
+- Contact
 
-## 本地预览
-```bash
-cd /Users/wu/.openclaw/workspace/work/company-showcase-site
-python3 -m http.server 8080
-```
+### Portal Area
+- `daily-tools` is the unified internal tools entry page.
+- Microsoft login is currently kept as a future-ready placeholder and is **not actively enabled** in the current stage.
 
-浏览器打开：
-- `http://localhost:8080/`（自动到英文）
-- `http://localhost:8080/zh-cn/`
-- `http://localhost:8080/zh-tw/`
-
-## 下一步
-1. 替换正式公司文案（中英繁）
-2. 补充真实团队信息与服务详情
-3. 增加 Logo、品牌色与图片素材
-4. 确认部署方案（Vercel / Netlify / Cloudflare Pages / 自有服务器）
-
-## Portal Bootstrap (PR3)
-This repo is being upgraded from static HTML into a Next.js-based portal.
-
-### Local run (new portal)
+## Local Development
 ```bash
 npm install
 npm run dev
 ```
+
+Default local URL:
+```bash
+http://localhost:3000
+```
+
+## Current Goals
+- Keep the public website clear and presentable
+- Keep the portal structure clean and extendable
+- Support internal testing and future tool onboarding
+- Avoid overbuilding auth before public / formal rollout
