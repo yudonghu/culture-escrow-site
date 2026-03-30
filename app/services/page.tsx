@@ -1,3 +1,5 @@
+import Breadcrumb from '@/components/Breadcrumb'
+
 const services = [
   {
     title: 'Escrow Services',
@@ -16,11 +18,20 @@ const services = [
 export default function ServicesPage() {
   return (
     <section className="hero">
-      <h1>Services</h1>
-      <p>
-        This page begins the migration of service-oriented messaging from the legacy site into the
-        new portal architecture.
-      </p>
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services' }]} />
+
+      <div className="hero-panel">
+        <h1 className="section-title">Services</h1>
+        <p>
+          This page continues the migration of service-oriented messaging from the legacy site into
+          the new portal information architecture.
+        </p>
+      </div>
+
+      <section style={{ marginBottom: 28 }}>
+        <h2 style={{ marginBottom: 6 }}>Service Presentation Layer</h2>
+        <p className="section-subtitle">Public service messaging stays readable while operational context becomes more structured.</p>
+      </section>
 
       <div className="card-grid">
         {services.map((item) => (
