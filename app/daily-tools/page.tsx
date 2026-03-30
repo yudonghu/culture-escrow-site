@@ -1,3 +1,4 @@
+import Breadcrumb from '@/components/Breadcrumb'
 import { tools } from '@/data/tools'
 
 const statusClassMap = {
@@ -24,6 +25,8 @@ const groupedTools = Object.entries(
 export default function DailyToolsPage() {
   return (
     <section className="hero">
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Daily Tools' }]} />
+
       <div className="hero-panel">
         <h1 className="section-title">日常工具</h1>
         <p>

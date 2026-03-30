@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import Breadcrumb from '@/components/Breadcrumb'
 import { tools } from '@/data/tools'
 
 export default async function ToolDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -12,6 +13,8 @@ export default async function ToolDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <section className="hero">
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Daily Tools', href: '/daily-tools' }, { label: tool.name }]} />
+
       <div className="hero-panel">
         <h1 className="section-title">{tool.icon} {tool.name}</h1>
         <p>{tool.summary ?? tool.desc}</p>
