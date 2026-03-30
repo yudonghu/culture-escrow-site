@@ -11,6 +11,6 @@
 3. Portal 层与工具层边界保持清晰
 
 ## 下一步建议
-- Team 页迁移
-- Contact 页迁移
-- Legacy 多语言内容对齐
+- [x] Team 页迁移
+- [x] Contact 页迁移
+- [ ] Legacy 多语言内容对齐
