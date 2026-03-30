@@ -6,61 +6,61 @@ export default function HomePage() {
       <Breadcrumb items={[{ label: 'Home' }]} />
 
       <div className="hero-panel">
-        <h1 className="section-title">Culture Escrow Portal</h1>
-        <p>
-          Culture Escrow Portal is evolving into a unified experience that combines the official
-          website with a structured internal tools entry. Public pages remain open, while the
-          portal layer prepares the foundation for internal operational workflows.
-        </p>
+        <div
+          className="hero-image"
+          style={{ backgroundImage: "url('/images/home/hero-placeholder.svg')" }}
+        />
+        <div className="hero-overlay" />
+        <div className="hero-content">
+          <span className="badge">Trusted Escrow Services</span>
+          <h1 className="section-title">A more personal and dependable escrow experience.</h1>
+          <p>
+            Culture Escrow combines a client-facing escrow website with a structured internal portal,
+            helping us support transactions with clarity, care, and operational precision.
+          </p>
+          <div className="hero-actions">
+            <a className="button-primary" href="/contact">Contact Us</a>
+            <a className="button-secondary" href="/services">View Services</a>
+          </div>
+        </div>
       </div>
 
-      <section style={{ marginBottom: 28 }}>
-        <h2 style={{ marginBottom: 6 }}>Public Website Layer</h2>
-        <p className="section-subtitle">
-          Company-facing pages remain simple, clear, and publicly accessible.
-        </p>
-        <div className="card-grid" style={{ marginTop: 16 }}>
+      <section className="section-block">
+        <div className="section-block-header">
+          <h2 style={{ marginBottom: 6 }}>Why Culture Escrow</h2>
+          <p className="section-subtitle">
+            We are shaping the site to feel like a real escrow company website first, while still supporting future portal growth.
+          </p>
+        </div>
+        <div className="card-grid">
           <div className="card">
-            <h2>About</h2>
-            <p>Present the company background, positioning, and public identity.</p>
+            <h2>Reliable Process</h2>
+            <p>Built to support smooth escrow coordination with a clear and professional experience.</p>
           </div>
           <div className="card">
-            <h2>Services</h2>
-            <p>Show the service offering in a clean public-facing format.</p>
+            <h2>Local Market Feel</h2>
+            <p>Visual direction is being prepared around San Marino-style homes and premium neighborhood presentation.</p>
           </div>
           <div className="card">
-            <h2>Team & Contact</h2>
-            <p>Keep people and contact surfaces visible as part of the official website.</p>
+            <h2>Modern Operations</h2>
+            <p>Behind the scenes, portal tools like pg17 are being integrated to support real workflow execution.</p>
           </div>
         </div>
       </section>
 
-      <section style={{ marginBottom: 28 }}>
-        <h2 style={{ marginBottom: 6 }}>Portal Layer</h2>
-        <p className="section-subtitle">
-          Internal tools are being organized into one structured portal instead of scattered links and isolated entry points.
-        </p>
-        <div className="card-grid" style={{ marginTop: 16 }}>
-          <div className="card">
-            <h2>Unified Entry</h2>
-            <p>`/daily-tools` is the main internal tools entry point for current and future Culture Escrow tools.</p>
-          </div>
-          <div className="card">
-            <h2>Internal Test Mode</h2>
-            <p>The current portal focuses on structure, visibility, and usability during internal testing.</p>
-          </div>
-          <div className="card">
-            <h2>Future-Ready Access</h2>
-            <p>Microsoft login remains planned for later activation, not as a blocker for the current phase.</p>
-          </div>
+      <section className="section-block split-feature">
+        <div className="feature-panel">
+          <h2>Professional Public Website</h2>
+          <p>
+            Home, About, Services, Team, and Contact are being refined to feel like a polished escrow brand presence.
+          </p>
         </div>
-      </section>
-
-      <section>
-        <h2 style={{ marginBottom: 6 }}>Current Direction</h2>
-        <p className="section-subtitle">
-          Portal v1 is focused on clarity, structure, local usability, and future extensibility.
-        </p>
+        <div className="feature-panel">
+          <h2>Internal Portal Growth</h2>
+          <p>
+            `daily-tools` remains the long-term internal tools hub, with pg17 as the first real connected tool.
+          </p>
+        </div>
       </section>
     </section>
   )

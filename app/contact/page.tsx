@@ -6,33 +6,33 @@ export default function ContactPage() {
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
 
       <div className="hero-panel">
-        <h1 className="section-title">Contact</h1>
-        <p>
-          Contact content remains public, accessible, and aligned with the rest of the portal-facing site structure.
-        </p>
+        <div className="hero-image" style={{ backgroundImage: "url('/images/home/hero-placeholder.svg')" }} />
+        <div className="hero-overlay" />
+        <div className="hero-content">
+          <span className="badge">Contact</span>
+          <h1 className="section-title">Reach out with confidence.</h1>
+          <p>
+            Contact information should remain simple, visible, and consistent with a professional escrow website experience.
+          </p>
+        </div>
       </div>
 
-      <section style={{ marginBottom: 28 }}>
-        <h2 style={{ marginBottom: 6 }}>Contact Surface</h2>
-        <p className="section-subtitle">
-          Public contact content should remain simple, readable, and easy to maintain.
-        </p>
+      <section className="section-block">
+        <div className="card-grid">
+          <div className="card">
+            <h2>Public Contact Surface</h2>
+            <p>Contact details remain openly available as part of the official website.</p>
+          </div>
+          <div className="card">
+            <h2>Clear Communication</h2>
+            <p>Clients should be able to understand how to reach the company without confusion.</p>
+          </div>
+          <div className="card">
+            <h2>Future Brand Content</h2>
+            <p>Later, this page can be upgraded with final company contact details and branded imagery.</p>
+          </div>
+        </div>
       </section>
-
-      <div className="card-grid">
-        <div className="card">
-          <h2>Public Contact Surface</h2>
-          <p>Contact information remains part of the official public site experience.</p>
-        </div>
-        <div className="card">
-          <h2>Portal Boundary</h2>
-          <p>Portal tooling grows behind the public website without changing the open nature of contact content.</p>
-        </div>
-        <div className="card">
-          <h2>Consistency</h2>
-          <p>This page follows the same information architecture pattern used across the current portal v1 site.</p>
-        </div>
-      </div>
     </section>
   )
 }
