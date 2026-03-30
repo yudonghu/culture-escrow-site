@@ -1,17 +1,21 @@
 # Microsoft Entra App Setup v1.0
 
-## 目标
-为 `culture-escrow-site` 的 `/daily-tools` 配置 Microsoft 登录能力。
+## 当前阶段说明
+目前 `culture-escrow-site` 仍以内测为主，**Microsoft 登录暂不立即落地启用**。
 
-## 需要准备
-在 Microsoft Entra 管理后台创建一个新的应用注册（App Registration）。
+现阶段策略是：
+- 保留 Microsoft 认证方案作为后续正式上线预案
+- 当前仅做文档占位与未来接入准备
+- 暂不要求立刻在 Microsoft Entra 后台创建应用
 
-## 建议应用用途
-- Portal 登录
-- 仅保护 `/daily-tools`
-- 官网公开页面继续公开访问
+## 未来启用时再执行
+当网站进入公开或正式内部上线阶段时，再进行以下操作：
+- 创建 App Registration
+- 配置 Redirect URI
+- 创建 client secret
+- 将 env 写入运行环境
 
-## 基本配置
+## 未来需要准备的配置
 ### 应用类型
 - Web
 
@@ -22,8 +26,7 @@
 #### 生产环境
 - `https://hydenluc.com/api/auth/callback/microsoft-entra-id`
 
-## 需要记录的字段
-创建应用后，保存以下值：
+## 未来需要记录的字段
 - Application (client) ID → `MICROSOFT_CLIENT_ID`
 - Directory (tenant) ID → `MICROSOFT_TENANT_ID`
 - Client secret value → `MICROSOFT_CLIENT_SECRET`

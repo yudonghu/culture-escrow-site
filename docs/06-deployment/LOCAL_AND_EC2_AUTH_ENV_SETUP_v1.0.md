@@ -1,6 +1,9 @@
 # Local and EC2 Auth Env Setup v1.0
 
-## 本地开发环境
+## 当前阶段说明
+当前阶段先不强制启用 Microsoft 登录，因此以下 env 配置属于**后续正式启用时再接入**的预留项。
+
+## 未来本地开发环境
 `.env.local` 示例：
 
 ```env
@@ -11,7 +14,7 @@ NEXTAUTH_SECRET=replace-with-random-secret
 NEXTAUTH_URL=http://localhost:3000
 ```
 
-## 生产环境（EC2）
+## 未来生产环境（EC2）
 生产 env 示例：
 
 ```env
@@ -23,6 +26,7 @@ NEXTAUTH_URL=https://hydenluc.com
 ```
 
 ## 说明
+- 当前阶段这些变量可以先不配置
 - 本地和线上主要区别是 `NEXTAUTH_URL`
-- Microsoft Entra 后台要同时配置本地和生产回调地址
+- Microsoft Entra 后台要在正式启用时配置本地和生产回调地址
 - 若后续 portal 迁移到独立域名，需要同步修改 `NEXTAUTH_URL`
