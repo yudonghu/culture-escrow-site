@@ -1,33 +1,35 @@
+import Breadcrumb from '@/components/Breadcrumb'
+
 export default function AboutPage() {
   return (
     <section className="hero">
-      <h1>About Culture Escrow</h1>
-      <p>
-        Culture Escrow is evolving its public site into a portal experience that still preserves
-        the company-facing presentation layer while preparing a unified entry for internal tools.
-      </p>
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+
+      <div className="hero-panel">
+        <h1 className="section-title">About Culture Escrow</h1>
+        <p>
+          Culture Escrow is evolving its public site into a portal experience that preserves the
+          company-facing presentation layer while preparing a unified entry for internal tools.
+        </p>
+      </div>
+
+      <section style={{ marginBottom: 28 }}>
+        <h2 style={{ marginBottom: 6 }}>Company Positioning</h2>
+        <p className="section-subtitle">Public-facing identity remains clear while portal capabilities grow behind it.</p>
+      </section>
 
       <div className="card-grid">
         <div className="card">
-          <h2>Company Positioning</h2>
-          <p>
-            The site remains a public-facing official website, while the internal portal layer will
-            gradually support operational workflows for staff.
-          </p>
+          <h2>Official Website Role</h2>
+          <p>The site continues to serve as the public-facing official website.</p>
         </div>
         <div className="card">
-          <h2>Public + Internal Balance</h2>
-          <p>
-            Public content stays openly accessible. Internal functionality is centered around the
-            protected <strong>/daily-tools</strong> entry.
-          </p>
+          <h2>Portal Evolution</h2>
+          <p>The same repository is also becoming the long-term internal tools entry layer.</p>
         </div>
         <div className="card">
-          <h2>Portal Direction</h2>
-          <p>
-            This repository is the long-term home for the official website and the future unified
-            navigation layer for Culture Escrow internal tools.
-          </p>
+          <h2>Open + Structured</h2>
+          <p>Public content stays open, while internal tooling is organized more intentionally.</p>
         </div>
       </div>
     </section>
