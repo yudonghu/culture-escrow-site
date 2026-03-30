@@ -30,3 +30,12 @@ python3 -m http.server 8080
 2. 补充真实团队信息与服务详情
 3. 增加 Logo、品牌色与图片素材
 4. 确认部署方案（Vercel / Netlify / Cloudflare Pages / 自有服务器）
+
+## Portal Bootstrap (PR3)
+This repo is being upgraded from static HTML into a Next.js-based portal.
+
+### Local run (new portal)
+```bash
+npm install
+npm run dev
+```
