@@ -1,5 +1,11 @@
 import { tools } from '@/data/tools'
 
+const statusClassMap = {
+  Live: 'badge badge-live',
+  Planned: 'badge badge-planned',
+  'Internal Test': 'badge badge-test',
+}
+
 export default function DailyToolsPage() {
   return (
     <section className="hero">
@@ -25,17 +31,25 @@ export default function DailyToolsPage() {
       </div>
 
       <div className="card-grid">
-        {tools.map((tool) => (
-          <div key={tool.name} className="card">
-            <div className="badge-row">
-              <span className="badge">{tool.status}</span>
-              <span className="badge">{tool.category}</span>
+        {tools.map((tool) => {
+          const openable = tool.availability === 'open'
+          return (
+            <div key={tool.name} className="card">
+              <div className="badge-row">
+                <span className={statusClassMap[tool.status]}>{tool.status}</span>
+                <span className="badge">{tool.category}</span>
+              </div>
+              <h2>{tool.icon} {tool.name}</h2>
+              <p>{tool.desc}</p>
+              {tool.notes ? <p><strong>Note:</strong> {tool.notes}</p> : null}
+              {openable ? (
+                <a className="cta-link" href={tool.href}>Open tool →</a>
+              ) : (
+                <span className="cta-link" style={{ opacity: 0.5 }}>Coming soon</span>
+              )}
             </div>
-            <h2>{tool.name}</h2>
-            <p>{tool.desc}</p>
-            <a className="cta-link" href={tool.href}>Open tool →</a>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </section>
   )
