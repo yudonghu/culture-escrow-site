@@ -16,20 +16,28 @@ export default async function ToolDetailPage({ params }: { params: Promise<{ slu
 
       <div className="card-grid">
         <div className="card">
+          <h2>使用阶段</h2>
+          <p>{tool.stage ?? 'TBD'}</p>
+        </div>
+        <div className="card">
+          <h2>入口状态</h2>
+          <p>{tool.availability === 'open' ? 'Open from portal' : 'Coming soon / placeholder'}</p>
+        </div>
+        <div className="card">
+          <h2>适用对象</h2>
+          <p>{tool.audience ?? 'TBD'}</p>
+        </div>
+        <div className="card">
+          <h2>后续计划</h2>
+          <p>{tool.roadmap ?? 'TBD'}</p>
+        </div>
+        <div className="card">
           <h2>Status</h2>
           <p>{tool.status}</p>
         </div>
         <div className="card">
           <h2>Category</h2>
           <p>{tool.category}</p>
-        </div>
-        <div className="card">
-          <h2>Audience</h2>
-          <p>{tool.audience ?? 'TBD'}</p>
-        </div>
-        <div className="card">
-          <h2>Notes</h2>
-          <p>{tool.notes ?? 'No additional notes yet.'}</p>
         </div>
       </div>
     </section>

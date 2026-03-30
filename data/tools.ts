@@ -13,6 +13,8 @@ export type ToolItem = {
   notes?: string
   summary?: string
   audience?: string
+  stage?: string
+  roadmap?: string
 }
 
 export const tools: ToolItem[] = [
@@ -28,6 +30,8 @@ export const tools: ToolItem[] = [
     notes: 'Production-ready external tool entry.',
     summary: 'Used for standardized page-17 completion workflow in Culture Escrow.',
     audience: 'Escrow staff handling PG17 completion workflow.',
+    stage: 'Active use / live external entry',
+    roadmap: 'Continue improving portal integration and richer tool metadata.',
   },
   {
     name: 'Temply',
@@ -41,6 +45,8 @@ export const tools: ToolItem[] = [
     notes: 'Planned tool card placeholder.',
     summary: 'Template management and reusable workflow content platform.',
     audience: 'Operations and staff members using standard content flows.',
+    stage: 'Planning / reserved portal slot',
+    roadmap: 'Connect actual tool endpoint and add operational detail guidance.',
   },
   {
     name: 'FedEx API',
@@ -54,6 +60,8 @@ export const tools: ToolItem[] = [
     notes: 'Internal test flow, not yet opened from portal.',
     summary: 'Supports shipping label generation, status tracking, and cancellation workflows.',
     audience: 'Shipping-related internal operations.',
+    stage: 'Internal testing / not publicly exposed in portal',
+    roadmap: 'Complete portal hookup and clarify operator-facing usage notes.',
   },
   {
     name: 'Refi A-Screen',
@@ -67,5 +75,7 @@ export const tools: ToolItem[] = [
     notes: 'Reserved slot for future integration.',
     summary: 'Refinance intake extraction, structured review, and downstream processing support.',
     audience: 'Refi workflow review and intake staff.',
+    stage: 'Planning / integration pending',
+    roadmap: 'Add actual intake flow entry and future review guidance.',
   },
 ]
