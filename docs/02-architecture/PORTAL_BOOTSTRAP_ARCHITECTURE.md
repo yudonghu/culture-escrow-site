@@ -1,20 +1,22 @@
-# Portal Bootstrap Architecture (PR3)
+# Portal Bootstrap Architecture (PR4 updated)
 
 ## 目标
-为 `culture-escrow-site` 建立可承载 Portal 能力的基础骨架。
+为 `culture-escrow-site` 建立可承载 Portal 能力的基础骨架，并明确访问边界。
 
-## 本次内容
-- 初始化 Next.js 基础结构
-- 建立核心路由占位：
-  - `/`
-  - `/about`
-  - `/services`
-  - `/team`
-  - `/contact`
-  - `/login`
-  - `/daily-tools`
-- 建立基础导航与样式
-- 为后续旧静态页面迁移做准备
+## 访问边界
+- 官网展示页：公开访问
+- `/daily-tools`：后续登录保护
+
+## 路由分层
+### Public
+- `/`
+- `/about`
+- `/services`
+- `/team`
+- `/contact`
+
+### Protected
+- `/daily-tools`
 
 ## 说明
-当前 PR 不是最终视觉与内容迁移，而是“让 repo 从静态 HTML 进入可演化的 Portal 技术形态”。
+后续登录逻辑应仅作用于 `/daily-tools`，不应影响官网公开访问与 SEO。
