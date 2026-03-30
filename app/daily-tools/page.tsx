@@ -22,6 +22,11 @@ const groupedTools = Object.entries(
   }, {})
 )
 
+const totalTools = tools.length
+const liveCount = tools.filter((tool) => tool.status === 'Live').length
+const internalTestCount = tools.filter((tool) => tool.status === 'Internal Test').length
+const plannedCount = tools.filter((tool) => tool.status === 'Planned').length
+
 export default function DailyToolsPage() {
   return (
     <section className="hero">
@@ -33,6 +38,25 @@ export default function DailyToolsPage() {
           This page is the unified internal tools entry for Culture Escrow portal. The public
           website remains open, while this area is being prepared as the long-term staff tools hub.
         </p>
+      </div>
+
+      <div className="card-grid" style={{ marginBottom: 24 }}>
+        <div className="card">
+          <h2>Total Tools</h2>
+          <p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{totalTools}</p>
+        </div>
+        <div className="card">
+          <h2>Live</h2>
+          <p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{liveCount}</p>
+        </div>
+        <div className="card">
+          <h2>Internal Test</h2>
+          <p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{internalTestCount}</p>
+        </div>
+        <div className="card">
+          <h2>Planned</h2>
+          <p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{plannedCount}</p>
+        </div>
       </div>
 
       <div className="card info-panel" style={{ marginBottom: 24 }}>
