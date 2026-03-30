@@ -63,11 +63,10 @@ export default function DailyToolsPage() {
                   <h2>{tool.icon} {tool.name}</h2>
                   <p>{tool.desc}</p>
                   {tool.notes ? <p><strong>Note:</strong> {tool.notes}</p> : null}
-                  {openable ? (
-                    <a className="cta-link" href={tool.href}>Open tool →</a>
-                  ) : (
-                    <span className="cta-link" style={{ opacity: 0.5 }}>Coming soon</span>
-                  )}
+                  <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                    {openable ? <a className="cta-link" href={tool.href}>Open tool →</a> : <span className="cta-link" style={{ opacity: 0.5 }}>Coming soon</span>}
+                    <a className="cta-link" href={`/tools/${tool.slug}`}>View details →</a>
+                  </div>
                 </div>
               )
             })}
