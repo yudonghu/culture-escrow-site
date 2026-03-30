@@ -7,20 +7,48 @@ export const metadata = {
   description: 'Culture Escrow official site and daily tools portal',
 }
 
+const publicNav = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/team', label: 'Team' },
+  { href: '/contact', label: 'Contact' },
+]
+
+const portalNav = [
+  { href: '/daily-tools', label: 'Daily Tools' },
+]
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
         <header className="site-header">
-          <div className="container nav">
-            <Link href="/" className="brand">Culture Escrow</Link>
-            <nav>
-              <Link href="/about">About</Link>
-              <Link href="/services">Services</Link>
-              <Link href="/team">Team</Link>
-              <Link href="/contact">Contact</Link>
-              <Link href="/daily-tools">日常工具</Link>
-            </nav>
+          <div className="container nav-shell">
+            <div className="brand-block">
+              <Link href="/" className="brand">Culture Escrow</Link>
+              <span className="brand-subtitle">Official Website + Portal</span>
+            </div>
+
+            <div className="nav-groups">
+              <div className="nav-group">
+                <span className="nav-group-label">Public</span>
+                <nav className="nav-links">
+                  {publicNav.map((item) => (
+                    <Link key={item.href} href={item.href}>{item.label}</Link>
+                  ))}
+                </nav>
+              </div>
+
+              <div className="nav-group">
+                <span className="nav-group-label">Portal</span>
+                <nav className="nav-links">
+                  {portalNav.map((item) => (
+                    <Link key={item.href} href={item.href}>{item.label}</Link>
+                  ))}
+                </nav>
+              </div>
+            </div>
           </div>
         </header>
         <main className="container">{children}</main>
