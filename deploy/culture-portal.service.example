@@ -1,0 +1,15 @@
+[Unit]
+Description=Culture Escrow Portal
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/culture-escrow-site
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/env npm run start
+Restart=always
+RestartSec=3
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target
