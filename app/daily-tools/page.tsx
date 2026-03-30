@@ -6,6 +6,21 @@ const statusClassMap = {
   'Internal Test': 'badge badge-test',
 }
 
+const groupDescriptions: Record<string, string> = {
+  'Document / Escrow': 'Document-related tools for escrow processing and file generation.',
+  Templates: 'Template and reusable workflow assets for Culture Escrow operations.',
+  Shipping: 'Shipping, label, cancellation, and tracking related workflows.',
+  'Intake / Refi': 'Refinance intake, extraction, and review-oriented workflows.',
+}
+
+const groupedTools = Object.entries(
+  tools.reduce<Record<string, typeof tools>>((acc, tool) => {
+    if (!acc[tool.category]) acc[tool.category] = []
+    acc[tool.category].push(tool)
+    return acc
+  }, {})
+)
+
 export default function DailyToolsPage() {
   return (
     <section className="hero">
@@ -30,27 +45,35 @@ export default function DailyToolsPage() {
         </ul>
       </div>
 
-      <div className="card-grid">
-        {tools.map((tool) => {
-          const openable = tool.availability === 'open'
-          return (
-            <div key={tool.name} className="card">
-              <div className="badge-row">
-                <span className={statusClassMap[tool.status]}>{tool.status}</span>
-                <span className="badge">{tool.category}</span>
-              </div>
-              <h2>{tool.icon} {tool.name}</h2>
-              <p>{tool.desc}</p>
-              {tool.notes ? <p><strong>Note:</strong> {tool.notes}</p> : null}
-              {openable ? (
-                <a className="cta-link" href={tool.href}>Open tool →</a>
-              ) : (
-                <span className="cta-link" style={{ opacity: 0.5 }}>Coming soon</span>
-              )}
-            </div>
-          )
-        })}
-      </div>
+      {groupedTools.map(([groupName, items]) => (
+        <section key={groupName} style={{ marginBottom: 28 }}>
+          <div style={{ marginBottom: 14 }}>
+            <h2 style={{ marginBottom: 6 }}>{groupName}</h2>
+            <p className="section-subtitle">{groupDescriptions[groupName] ?? 'Tool group'}</p>
+          </div>
+          <div className="card-grid">
+            {items.map((tool) => {
+              const openable = tool.availability === 'open'
+              return (
+                <div key={tool.name} className="card">
+                  <div className="badge-row">
+                    <span className={statusClassMap[tool.status]}>{tool.status}</span>
+                    <span className="badge">{tool.category}</span>
+                  </div>
+                  <h2>{tool.icon} {tool.name}</h2>
+                  <p>{tool.desc}</p>
+                  {tool.notes ? <p><strong>Note:</strong> {tool.notes}</p> : null}
+                  {openable ? (
+                    <a className="cta-link" href={tool.href}>Open tool →</a>
+                  ) : (
+                    <span className="cta-link" style={{ opacity: 0.5 }}>Coming soon</span>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      ))}
     </section>
   )
 }
