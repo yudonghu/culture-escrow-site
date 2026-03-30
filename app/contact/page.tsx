@@ -8,27 +8,29 @@ export default function ContactPage() {
       <div className="hero-panel">
         <h1 className="section-title">Contact</h1>
         <p>
-          This page continues evolving from the legacy public website content into the portal-era contact structure.
+          Contact content remains public, accessible, and aligned with the rest of the portal-facing site structure.
         </p>
       </div>
 
       <section style={{ marginBottom: 28 }}>
         <h2 style={{ marginBottom: 6 }}>Contact Surface</h2>
-        <p className="section-subtitle">Public contact content remains open and should stay simple, clear, and accessible.</p>
+        <p className="section-subtitle">
+          Public contact content should remain simple, readable, and easy to maintain.
+        </p>
       </section>
 
       <div className="card-grid">
         <div className="card">
           <h2>Public Contact Surface</h2>
-          <p>Contact information remains part of the public-facing website and stays openly accessible.</p>
+          <p>Contact information remains part of the official public site experience.</p>
         </div>
         <div className="card">
           <h2>Portal Boundary</h2>
-          <p>Public contact content stays open, while internal tooling continues to live under the portal structure.</p>
+          <p>Portal tooling grows behind the public website without changing the open nature of contact content.</p>
         </div>
         <div className="card">
-          <h2>Future Consistency</h2>
-          <p>This page now follows the same information architecture pattern as the rest of the portal site.</p>
+          <h2>Consistency</h2>
+          <p>This page follows the same information architecture pattern used across the current portal v1 site.</p>
         </div>
       </div>
     </section>

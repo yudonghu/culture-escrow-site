@@ -7,6 +7,7 @@
       "esnext"
     ],
     "allowJs": false,
+    "allowArbitraryExtensions": true,
     "skipLibCheck": true,
     "strict": false,
     "noEmit": true,
@@ -18,6 +19,7 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "paths": {
       "@/*": ["./*"]
     },

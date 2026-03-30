@@ -8,28 +8,30 @@ export default function AboutPage() {
       <div className="hero-panel">
         <h1 className="section-title">About Culture Escrow</h1>
         <p>
-          Culture Escrow is evolving its public site into a portal experience that preserves the
-          company-facing presentation layer while preparing a unified entry for internal tools.
+          Culture Escrow Portal is designed to preserve a clear public website while creating a
+          structured long-term home for internal operational tools.
         </p>
       </div>
 
       <section style={{ marginBottom: 28 }}>
         <h2 style={{ marginBottom: 6 }}>Company Positioning</h2>
-        <p className="section-subtitle">Public-facing identity remains clear while portal capabilities grow behind it.</p>
+        <p className="section-subtitle">
+          Public-facing presentation remains clear and professional while the portal grows behind it.
+        </p>
       </section>
 
       <div className="card-grid">
         <div className="card">
           <h2>Official Website Role</h2>
-          <p>The site continues to serve as the public-facing official website.</p>
+          <p>The site continues to serve as the public-facing official website for Culture Escrow.</p>
         </div>
         <div className="card">
-          <h2>Portal Evolution</h2>
-          <p>The same repository is also becoming the long-term internal tools entry layer.</p>
+          <h2>Portal Role</h2>
+          <p>The same project also serves as the future internal tools entry and organizational layer.</p>
         </div>
         <div className="card">
-          <h2>Open + Structured</h2>
-          <p>Public content stays open, while internal tooling is organized more intentionally.</p>
+          <h2>Current Phase</h2>
+          <p>Portal v1 emphasizes structure, usability, and internal testing readiness.</p>
         </div>
       </div>
     </section>

@@ -8,29 +8,29 @@ export default function HomePage() {
       <div className="hero-panel">
         <h1 className="section-title">Culture Escrow Portal</h1>
         <p>
-          The official website is being upgraded into a unified portal experience: public-facing
-          company pages remain open, while internal daily tools are organized through a dedicated
-          portal entry.
+          Culture Escrow Portal is evolving into a unified experience that combines the official
+          website with a structured internal tools entry. Public pages remain open, while the
+          portal layer prepares the foundation for internal operational workflows.
         </p>
       </div>
 
       <section style={{ marginBottom: 28 }}>
         <h2 style={{ marginBottom: 6 }}>Public Website Layer</h2>
         <p className="section-subtitle">
-          Public pages continue to present company-facing information and remain openly accessible.
+          Company-facing pages remain simple, clear, and publicly accessible.
         </p>
         <div className="card-grid" style={{ marginTop: 16 }}>
           <div className="card">
             <h2>About</h2>
-            <p>Company background and official positioning.</p>
+            <p>Present the company background, positioning, and public identity.</p>
           </div>
           <div className="card">
             <h2>Services</h2>
-            <p>Public-facing service presentation and operational context.</p>
+            <p>Show the service offering in a clean public-facing format.</p>
           </div>
           <div className="card">
-            <h2>Team / Contact</h2>
-            <p>Public people and contact surfaces remain accessible as part of the official site.</p>
+            <h2>Team & Contact</h2>
+            <p>Keep people and contact surfaces visible as part of the official website.</p>
           </div>
         </div>
       </section>
@@ -38,20 +38,20 @@ export default function HomePage() {
       <section style={{ marginBottom: 28 }}>
         <h2 style={{ marginBottom: 6 }}>Portal Layer</h2>
         <p className="section-subtitle">
-          The portal layer organizes internal tools through a unified entry instead of scattered links.
+          Internal tools are being organized into one structured portal instead of scattered links and isolated entry points.
         </p>
         <div className="card-grid" style={{ marginTop: 16 }}>
           <div className="card">
-            <h2>Unified Tool Entry</h2>
-            <p>`/daily-tools` is the long-term home for tool discovery, grouping, and navigation.</p>
+            <h2>Unified Entry</h2>
+            <p>`/daily-tools` is the main internal tools entry point for current and future Culture Escrow tools.</p>
           </div>
           <div className="card">
             <h2>Internal Test Mode</h2>
-            <p>Current phase prioritizes internal testing, structure building, and iterative refinement.</p>
+            <p>The current portal focuses on structure, visibility, and usability during internal testing.</p>
           </div>
           <div className="card">
-            <h2>Future Auth Layer</h2>
-            <p>Microsoft login remains a future activation path, not a current rollout blocker.</p>
+            <h2>Future-Ready Access</h2>
+            <p>Microsoft login remains planned for later activation, not as a blocker for the current phase.</p>
           </div>
         </div>
       </section>
@@ -59,8 +59,7 @@ export default function HomePage() {
       <section>
         <h2 style={{ marginBottom: 6 }}>Current Direction</h2>
         <p className="section-subtitle">
-          The site is evolving from a static website into a portal with structured information,
-          tool navigation, and future-ready access boundaries.
+          Portal v1 is focused on clarity, structure, local usability, and future extensibility.
         </p>
       </section>
     </section>

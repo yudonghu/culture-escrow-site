@@ -3,15 +3,15 @@ import Breadcrumb from '@/components/Breadcrumb'
 const services = [
   {
     title: 'Escrow Services',
-    desc: 'Core escrow workflow presentation and future structured service descriptions.',
+    desc: 'Core public-facing escrow service presentation for the official site.',
   },
   {
-    title: 'Operational Tooling',
-    desc: 'Internal tooling access will be progressively organized through the portal workflow.',
+    title: 'Operational Workflows',
+    desc: 'Internal workflows are gradually being represented through structured portal entry points.',
   },
   {
-    title: 'Digital Process Enablement',
-    desc: 'Tools such as PG17, Temply, and FedEx-related services will be surfaced through a unified experience.',
+    title: 'Digital Tool Support',
+    desc: 'Portal-linked tools such as PG17, Temply, FedEx API, and future utilities expand operational support.',
   },
 ]
 
@@ -23,14 +23,15 @@ export default function ServicesPage() {
       <div className="hero-panel">
         <h1 className="section-title">Services</h1>
         <p>
-          This page continues the migration of service-oriented messaging from the legacy site into
-          the new portal information architecture.
+          The services layer remains public-facing while the broader portal architecture supports future workflow integration.
         </p>
       </div>
 
       <section style={{ marginBottom: 28 }}>
         <h2 style={{ marginBottom: 6 }}>Service Presentation Layer</h2>
-        <p className="section-subtitle">Public service messaging stays readable while operational context becomes more structured.</p>
+        <p className="section-subtitle">
+          Public website messaging remains readable while portal support becomes more structured.
+        </p>
       </section>
 
       <div className="card-grid">
