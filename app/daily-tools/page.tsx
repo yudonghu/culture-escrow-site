@@ -36,6 +36,20 @@ export default function DailyToolsPage() {
       </div>
 
       <div className="card info-panel" style={{ marginBottom: 24 }}>
+        <h2>Portal Overview</h2>
+        <p>
+          This page is currently used as the internal test and navigation layer for Culture Escrow tools.
+          It helps staff understand what tools exist, which ones are already open, and which ones are still
+          being prepared for future rollout.
+        </p>
+        <ul>
+          <li>Browse tools by category</li>
+          <li>Open live tools directly from the portal</li>
+          <li>Use “View details” to understand status, audience, and roadmap</li>
+        </ul>
+      </div>
+
+      <div className="card info-panel" style={{ marginBottom: 24 }}>
         <h2>当前阶段说明</h2>
         <p>
           当前页面以内部测试和入口整合为主。Microsoft 登录方案已经完成规划，但现阶段仍以占位方式保留，
