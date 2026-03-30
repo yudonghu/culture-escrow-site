@@ -1,0 +1,11 @@
+import type { ReactNode } from 'react'
+import LocalizedHeader from '@/components/LocalizedHeader'
+
+export default function DefaultSiteLayout({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <LocalizedHeader lang="en" />
+      {children}
+    </>
+  )
+}
