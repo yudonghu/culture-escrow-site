@@ -10,6 +10,7 @@ export default async function ToolDetailPage({ params }: { params: Promise<{ slu
   if (!tool) return notFound()
 
   const openable = tool.availability === 'open'
+  const isPg17 = tool.slug === 'pg17'
 
   return (
     <section className="hero">
@@ -19,6 +20,16 @@ export default async function ToolDetailPage({ params }: { params: Promise<{ slu
         <h1 className="section-title">{tool.icon} {tool.name}</h1>
         <p>{tool.summary ?? tool.desc}</p>
       </div>
+
+      {isPg17 ? (
+        <div className="card info-panel" style={{ marginBottom: 24 }}>
+          <h2>Portal Integration Status</h2>
+          <p>
+            PG17 is currently the first real tool being formally connected into the Culture Escrow portal structure.
+            It serves as the reference sample for how future tools will be linked, described, and deployed.
+          </p>
+        </div>
+      ) : null}
 
       <div className="card" style={{ marginBottom: 24 }}>
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
