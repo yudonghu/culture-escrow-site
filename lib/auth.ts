@@ -7,7 +7,7 @@ import { authConfig } from '../auth.config'
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   session: {
-    maxAge: 30 * 24 * 60 * 60, // 30 天
+    maxAge: 400 * 24 * 60 * 60, // 400 天（浏览器最大限制）
   },
   providers: [
     Credentials({
