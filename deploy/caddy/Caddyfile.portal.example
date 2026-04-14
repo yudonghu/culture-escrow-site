@@ -1,11 +1,7 @@
-hydenluc.com, www.hydenluc.com {
+portal.cultureescrow.com {
     reverse_proxy 127.0.0.1:3000
 }
 
-app.hydenluc.com {
-    reverse_proxy 127.0.0.1:3000
-}
-
-api.hydenluc.com {
+api.cultureescrow.com {
     reverse_proxy 127.0.0.1:8787
 }
