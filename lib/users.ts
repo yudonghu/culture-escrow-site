@@ -14,7 +14,7 @@ export async function findUserByLogin(login: string): Promise<User | null> {
     const result = await client.query<User>(
       `SELECT id, username, email, password_hash, is_active
        FROM auth.users
-       WHERE (email = $1 OR username = $1) AND is_active = TRUE
+       WHERE (LOWER(email) = $1 OR LOWER(username) = $1) AND is_active = TRUE
        LIMIT 1`,
       [login.toLowerCase().trim()]
     )
