@@ -8,9 +8,11 @@ export const authConfig = {
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user
-      const isProtected = nextUrl.pathname.startsWith('/daily-tools')
-      if (isProtected) return isLoggedIn
-      return true
+      const isPublic =
+        nextUrl.pathname === '/login' ||
+        nextUrl.pathname.startsWith('/api/auth')
+      if (isPublic) return true
+      return isLoggedIn
     },
   },
   providers: [],
