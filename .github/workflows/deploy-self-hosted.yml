@@ -16,7 +16,7 @@ jobs:
       - name: Sync repo to portal path
         run: |
           sudo mkdir -p /opt/culture-escrow-site
-          sudo rsync -az --delete ./ /opt/culture-escrow-site/
+          sudo rsync -az --delete --exclude='.env' ./ /opt/culture-escrow-site/
           sudo chown -R $USER:$USER /opt/culture-escrow-site
 
       - name: Install dependencies
