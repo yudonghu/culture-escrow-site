@@ -6,6 +6,12 @@ export const authConfig = {
     signIn: '/login',
   },
   callbacks: {
+    redirect({ url, baseUrl }) {
+      // 登出后跳回 /login
+      if (url.includes('/login')) return `${baseUrl}/login`
+      // 登录后始终跳转到 /en/daily-tools
+      return `${baseUrl}/en/daily-tools`
+    },
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user
       const isPublic =
