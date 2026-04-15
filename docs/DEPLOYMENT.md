@@ -4,8 +4,8 @@
 
 | 组件 | 详情 |
 |---|---|
-| 服务器 | AWS EC2（`50.18.170.151`） |
-| 域名 | `portal.cultureescrow.com` |
+| 服务器 | AWS EC2 |
+| 域名 | 内部配置，见 `.env` |
 | 反向代理 | Caddy |
 | 进程管理 | systemd（`culture-portal.service`） |
 | CI/CD | GitHub Actions self-hosted runner（EC2 本机） |
@@ -22,9 +22,9 @@
 ## 环境变量（`.env`）
 
 ```env
-NEXTAUTH_SECRET=<random-base64>
-NEXTAUTH_URL=https://portal.cultureescrow.com
-DATABASE_URL=postgresql://postgres:<password>@localhost:5432/temply
+NEXTAUTH_SECRET=<openssl rand -base64 32 生成>
+NEXTAUTH_URL=https://<your-domain>
+DATABASE_URL=postgresql://<db-user>:<db-password>@localhost:5432/<db-name>
 AUTH_TRUST_HOST=true
 ```
 
@@ -50,7 +50,7 @@ journalctl -u culture-portal -f
 ## Caddy 配置（`/etc/caddy/Caddyfile`）
 
 ```caddy
-portal.cultureescrow.com {
+your-domain.com {
     # pg17：forward_auth 保护
     handle /pg17* {
         forward_auth localhost:3000 {

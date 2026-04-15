@@ -19,7 +19,8 @@
 
 ### Daily Tools 页面
 - [x] 工具卡片网格（name、desc、status、category、icon）
-- [x] 工具名称和简介可点击跳转详情页
+- [x] 已开放工具：点击名称/简介直接跳转工具地址
+- [x] 未开放工具：点击跳转详情页
 - [x] 工具详情页（`/[lang]/tools/[slug]`）
 - [x] Breadcrumb 导航
 - [x] 当前阶段说明块 + 统计卡片
