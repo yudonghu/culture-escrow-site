@@ -16,15 +16,9 @@ export default async function LocalizedDailyToolsPage({ params }: { params: Prom
   return (
     <section className="hero">
       <Breadcrumb items={[{ label: t.breadcrumbHome, href: `/${lang}` }, { label: t.dailyTools }]} />
-      <div className="hero-panel"><div className="hero-content"><h1 className="section-title">{t.dailyTools}</h1><p>{t.overviewDesc}</p></div></div>
+
+      {/* 1. 工具入口卡片 */}
       <div className="card-grid" style={{ marginBottom: 24 }}>
-        <div className="card"><h2>{t.metrics.total}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{totalTools}</p></div>
-        <div className="card"><h2>{t.metrics.live}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{liveCount}</p></div>
-        <div className="card"><h2>{t.metrics.test}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{internalTestCount}</p></div>
-        <div className="card"><h2>{t.metrics.planned}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{plannedCount}</p></div>
-      </div>
-      <div className="card info-panel" style={{ marginBottom: 24 }}><h2>{t.currentPhaseTitle}</h2><p>{t.currentPhaseDesc}</p></div>
-      <div className="card-grid">
         {tools.map((tool) => {
           const openable = tool.availability === 'open'
           return (
@@ -36,12 +30,36 @@ export default async function LocalizedDailyToolsPage({ params }: { params: Prom
               <h2>{tool.icon} {tool.name}</h2>
               <p>{tool.desc}</p>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                {openable ? <a className="cta-link" href={tool.href}>{t.openTool}</a> : <span className="cta-link" style={{ opacity: 0.5 }}>{t.comingSoon}</span>}
+                {openable
+                  ? <a className="cta-link" href={tool.href}>{t.openTool}</a>
+                  : <span className="cta-link" style={{ opacity: 0.5 }}>{t.comingSoon}</span>}
                 <a className="cta-link" href={`/${lang}/tools/${tool.slug}`}>{t.viewDetails}</a>
               </div>
             </div>
           )
         })}
+      </div>
+
+      {/* 2. Current Phase */}
+      <div className="card info-panel" style={{ marginBottom: 24 }}>
+        <h2>{t.currentPhaseTitle}</h2>
+        <p>{t.currentPhaseDesc}</p>
+      </div>
+
+      {/* 3. 开发进度统计 */}
+      <div className="card-grid" style={{ marginBottom: 24 }}>
+        <div className="card"><h2>{t.metrics.total}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{totalTools}</p></div>
+        <div className="card"><h2>{t.metrics.live}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{liveCount}</p></div>
+        <div className="card"><h2>{t.metrics.test}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{internalTestCount}</p></div>
+        <div className="card"><h2>{t.metrics.planned}</h2><p style={{ fontSize: 28, fontWeight: 700, margin: 0 }}>{plannedCount}</p></div>
+      </div>
+
+      {/* 4. 页面介绍（移至底部） */}
+      <div className="hero-panel">
+        <div className="hero-content">
+          <h1 className="section-title">{t.dailyTools}</h1>
+          <p>{t.overviewDesc}</p>
+        </div>
       </div>
     </section>
   )
