@@ -9,6 +9,17 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   session: {
     maxAge: 400 * 24 * 60 * 60, // 400 天（浏览器最大限制）
   },
+  callbacks: {
+    ...authConfig.callbacks,
+    async jwt({ token, user }) {
+      if (user?.role) token.role = user.role
+      return token
+    },
+    async session({ session, token }) {
+      if (token.role) session.user.role = token.role
+      return session
+    },
+  },
   providers: [
     Credentials({
       credentials: {
@@ -31,6 +42,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           id: user.id,
           name: user.username,
           email: user.email,
+          role: user.role,
         }
       },
     }),

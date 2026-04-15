@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { siteCopy, type Lang, withLang } from '@/lib/site-copy'
 import { signOutAction } from '@/app/login/actions'
 
-export default function LocalizedHeader({ lang, username }: { lang: Lang; username?: string | null }) {
+export default function LocalizedHeader({ lang, username, role }: { lang: Lang; username?: string | null; role?: string | null }) {
   const copy = siteCopy[lang]
   const publicNav = [
     { href: withLang(lang, '/'), label: copy.nav.home },
@@ -41,6 +41,11 @@ export default function LocalizedHeader({ lang, username }: { lang: Lang; userna
           {username && (
             <div className="nav-group nav-user">
               <span className="nav-username">{username}</span>
+              <nav className="nav-links">
+                {role === 'admin' && (
+                  <Link href={withLang(lang, '/admin/users')}>Manage Users</Link>
+                )}
+              </nav>
               <form action={signOutAction}>
                 <button type="submit" className="nav-logout">Sign Out</button>
               </form>
