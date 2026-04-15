@@ -27,7 +27,7 @@ export default async function LocalizedDailyToolsPage({ params }: { params: Prom
                 <span className={statusClassMap[tool.status]}>{tool.status}</span>
                 <span className="badge">{tool.category}</span>
               </div>
-              <a href={`/${lang}/tools/${tool.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <a href={openable ? tool.href : `/${lang}/tools/${tool.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <h2 style={{ margin: '14px 0 10px' }}>{tool.icon} {tool.name}</h2>
                 <p style={{ marginTop: 0 }}>{tool.desc}</p>
               </a>
