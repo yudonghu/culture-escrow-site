@@ -11,6 +11,7 @@ export default function HeaderFromPath() {
   const lang = (supportedLangs.includes(first as Lang) ? first : defaultLang) as Lang
   const { data: session } = useSession()
   const username = session?.user?.name ?? null
+  const role = session?.user?.role ?? null
 
-  return <LocalizedHeader lang={lang} username={username} />
+  return <LocalizedHeader lang={lang} username={username} role={role} />
 }
