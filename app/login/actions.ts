@@ -9,7 +9,7 @@ export async function signInAction(formData: FormData) {
     await signIn('credentials', {
       login: formData.get('login'),
       password: formData.get('password'),
-      redirectTo: '/daily-tools',
+      redirectTo: '/en/daily-tools',
     })
   } catch (e) {
     if (e instanceof AuthError) {
