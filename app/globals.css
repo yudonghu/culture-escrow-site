@@ -240,3 +240,16 @@ body {
   .section-title { font-size: 34px; }
   .split-feature { grid-template-columns: 1fr; }
 }
+
+.nav-logout {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: var(--on-brand);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.nav-logout:hover { background: rgba(255,255,255,0.12); }

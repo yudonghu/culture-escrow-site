@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { siteCopy, type Lang, withLang } from '@/lib/site-copy'
+import { signOutAction } from '@/app/login/actions'
 
 export default function LocalizedHeader({ lang }: { lang: Lang }) {
   const copy = siteCopy[lang]
@@ -37,6 +38,9 @@ export default function LocalizedHeader({ lang }: { lang: Lang }) {
             <span className="nav-group-label">Language</span>
             <nav className="nav-links">{langNav.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}</nav>
           </div>
+          <form action={signOutAction}>
+            <button type="submit" className="nav-logout">Sign Out</button>
+          </form>
         </div>
       </div>
     </header>
