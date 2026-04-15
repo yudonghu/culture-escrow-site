@@ -10,13 +10,12 @@ export default async function LocalizedToolDetailPage({ params }: { params: Prom
   const tool = tools.find((item) => item.slug === slug)
   if (!tool) return notFound()
   const openable = tool.availability === 'open'
-  const isPg17 = tool.slug === 'pg17'
 
   return (
     <section className="hero">
       <Breadcrumb items={[{ label: t.breadcrumbHome, href: `/${lang}` }, { label: t.dailyTools, href: `/${lang}/daily-tools` }, { label: tool.name }]} />
       <div className="hero-panel"><div className="hero-content"><h1 className="section-title">{tool.icon} {tool.name}</h1><p>{tool.summary ?? tool.desc}</p></div></div>
-      {isPg17 ? <div className="card info-panel" style={{ marginBottom: 24 }}><h2>{t.portalIntegration}</h2><p>{t.portalIntegrationDesc}</p></div> : null}
+      {tool.portalNote ? <div className="card info-panel" style={{ marginBottom: 24 }}><h2>{t.portalIntegration}</h2><p>{tool.portalNote}</p></div> : null}
       <div className="card" style={{ marginBottom: 24 }}>
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
           <Link className="cta-link" href={`/${lang}/daily-tools`}>{t.back}</Link>

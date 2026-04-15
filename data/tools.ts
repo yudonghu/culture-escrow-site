@@ -15,6 +15,7 @@ export type ToolItem = {
   audience?: string
   stage?: string
   roadmap?: string
+  portalNote?: string
 }
 
 export const tools: ToolItem[] = [
@@ -32,6 +33,7 @@ export const tools: ToolItem[] = [
     audience: 'Escrow staff handling California RPA page-17 completion workflows.',
     stage: 'Production-facing portal entry active',
     roadmap: 'Next step is refining the final in-portal routing and continuing production hardening around the pg17 experience.',
+    portalNote: 'PG17 is currently the first real tool being formally connected into the Culture Escrow portal structure. It serves as the reference sample for how future tools will be linked, described, and deployed.',
   },
   {
     name: 'Temply',
