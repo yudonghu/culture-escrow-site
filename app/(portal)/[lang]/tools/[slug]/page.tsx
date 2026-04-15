@@ -25,7 +25,7 @@ export default async function LocalizedToolDetailPage({ params }: { params: Prom
       </div>
       <div className="card-grid">
         <div className="card"><h2>{t.stage}</h2><p>{tool.stage ?? 'TBD'}</p></div>
-        <div className="card"><h2>{t.entry}</h2><p>{openable ? 'Open from portal' : 'Coming soon / placeholder'}</p></div>
+        <div className="card"><h2>{t.entry}</h2><p>{openable ? t.entryOpen : t.entryNotOpen}</p></div>
         <div className="card"><h2>{t.audience}</h2><p>{tool.audience ?? 'TBD'}</p></div>
         <div className="card"><h2>{t.roadmap}</h2><p>{tool.roadmap ?? 'TBD'}</p></div>
         <div className="card"><h2>{t.status}</h2><p>{tool.status}</p></div>
