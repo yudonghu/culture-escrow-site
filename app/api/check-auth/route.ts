@@ -11,7 +11,6 @@ export async function GET() {
     return new NextResponse(null, { status: 200 })
   }
 
-  return NextResponse.redirect('https://portal.cultureescrow.com/login', {
-    status: 302,
-  })
+  const baseUrl = process.env.NEXTAUTH_URL ?? 'https://portal.cultureescrow.com'
+  return NextResponse.redirect(`${baseUrl}/login`, { status: 302 })
 }
