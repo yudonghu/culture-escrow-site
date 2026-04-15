@@ -41,14 +41,14 @@ export default function LocalizedHeader({ lang, username, role }: { lang: Lang; 
           {username && (
             <div className="nav-group nav-user">
               <span className="nav-username">{username}</span>
-              <nav className="nav-links">
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 {role === 'admin' && (
-                  <Link href={withLang(lang, '/admin/users')}>Manage Users</Link>
+                  <Link href={`/${lang}/admin/users`} className="nav-logout" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>Manage Users</Link>
                 )}
-              </nav>
-              <form action={signOutAction}>
-                <button type="submit" className="nav-logout">Sign Out</button>
-              </form>
+                <form action={signOutAction}>
+                  <button type="submit" className="nav-logout">Sign Out</button>
+                </form>
+              </div>
             </div>
           )}
         </div>
