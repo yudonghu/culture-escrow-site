@@ -5,7 +5,13 @@ import { signInAction } from './actions'
 
 const STORAGE_KEY = 'ce_remembered_login'
 
-export default function LoginForm({ error }: { error?: string }) {
+type Props = {
+  error?: string
+  rememberLabel: string
+  errorMessage: string
+}
+
+export default function LoginForm({ error, rememberLabel, errorMessage }: Props) {
   const [savedLogin, setSavedLogin] = useState('')
   const [rememberMe, setRememberMe] = useState(true)
 
@@ -38,7 +44,7 @@ export default function LoginForm({ error }: { error?: string }) {
             fontSize: 14,
           }}
         >
-          用户名或密码错误，请重试。
+          {errorMessage}
         </div>
       )}
 
@@ -78,7 +84,7 @@ export default function LoginForm({ error }: { error?: string }) {
             onChange={(e) => setRememberMe(e.target.checked)}
             style={{ width: 16, height: 16, cursor: 'pointer' }}
           />
-          记住用户名
+          {rememberLabel}
         </label>
 
         <button
