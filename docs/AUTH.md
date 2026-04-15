@@ -20,17 +20,9 @@ CREATE TABLE auth.users (
 );
 ```
 
-### 当前员工账号
+### 账号管理
 
-| username | role |
-|---|---|
-| kevin | admin |
-| jason | admin |
-| shauna | admin |
-| hydenluc | admin |
-| Justin | staff |
-| tony | staff |
-| vickie | staff |
+用户账号通过 `/[lang]/admin/users` 页面管理（需 admin 登录）。账号信息存储在数据库中，不在代码库中维护。
 
 ## Role 系统
 
@@ -73,12 +65,12 @@ const role = session?.user?.role
 
 `useSession()` 需要 `SessionProvider`（`components/Providers.tsx`）包裹，已在根 `layout.tsx` 中配置。
 
-## 环境变量（EC2 `/opt/culture-escrow-site/.env`）
+## 环境变量（生产服务器 `.env`，不进 git）
 
 ```env
-NEXTAUTH_SECRET=<random-secret>
-NEXTAUTH_URL=https://portal.cultureescrow.com
-DATABASE_URL=postgresql://postgres:<password>@localhost:5432/temply
+NEXTAUTH_SECRET=<openssl rand -base64 32 生成>
+NEXTAUTH_URL=https://<your-domain>
+DATABASE_URL=postgresql://<db-user>:<db-password>@localhost:5432/<db-name>
 AUTH_TRUST_HOST=true
 ```
 
