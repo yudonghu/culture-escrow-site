@@ -9,7 +9,7 @@
     "allowJs": false,
     "allowArbitraryExtensions": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
