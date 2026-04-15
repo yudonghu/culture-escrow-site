@@ -1,35 +1,42 @@
 # Culture Escrow Portal
 
-Culture Escrow Portal is the evolving unified website + internal tools entry project for Culture Escrow.
+Culture Escrow Portal is the official website and internal tools portal for Culture Escrow Inc.
 
-## Current Stage
-This project is currently in **Portal v1 consolidation** stage.
+## Overview
 
-### Public Website
-The following pages are public-facing and remain openly accessible:
-- Home
-- About
-- Services
-- Team
-- Contact
+This project serves two roles:
 
-### Portal Area
-- `daily-tools` is the unified internal tools entry page.
-- Microsoft login is currently kept as a future-ready placeholder and is **not actively enabled** in the current stage.
+- **Public website**: Home, About, Services, Team, Contact — openly accessible, multilingual (EN / 简中 / 繁中)
+- **Internal Portal**: Employee login + unified tool entry (`/daily-tools`) — login required
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Auth**: NextAuth v5 (Credentials Provider)
+- **Database**: PostgreSQL
+- **Deployment**: AWS EC2 + Caddy + systemd + GitHub Actions self-hosted runner
 
 ## Local Development
+
+Copy the example env file and fill in your values:
+
+```bash
+cp .env.example .env.local
+```
+
+Install and run:
+
 ```bash
 npm install
 npm run dev
 ```
 
-Default local URL:
-```bash
-http://localhost:3000
-```
+Default local URL: `http://localhost:3000`
 
-## Current Goals
-- Keep the public website clear and presentable
-- Keep the portal structure clean and extendable
-- Support internal testing and future tool onboarding
-- Avoid overbuilding auth before public / formal rollout
+## Environment Variables
+
+See `.env.example` for required variables.
+
+## Docs
+
+See the [`docs/`](./docs/) directory for architecture, routing, auth, deployment, and roadmap documentation.
