@@ -18,12 +18,17 @@ export type ToolItem = {
   portalNote?: string
 }
 
+// Tool URLs — override per environment via .env
+const _portalBase = process.env.NEXT_PUBLIC_PORTAL_URL || 'https://portal.cultureescrow.com'
+const _templyUrl  = process.env.NEXT_PUBLIC_TEMPLY_URL  || `${_portalBase}/temply/`
+const _pg17Url    = process.env.NEXT_PUBLIC_PG17_URL    || `${_portalBase}/pg17`
+
 export const tools: ToolItem[] = [
   {
     name: 'PG17',
     slug: 'pg17',
     desc: 'California RPA page 17 fill tool for escrow workflows.',
-    href: 'https://portal.cultureescrow.com/pg17',
+    href: _pg17Url,
     status: 'Live',
     category: 'Document / Escrow',
     availability: 'open',
@@ -39,7 +44,7 @@ export const tools: ToolItem[] = [
     name: 'Temply',
     slug: 'temply',
     desc: 'Template center for Culture Escrow operational workflows and reusable content.',
-    href: 'https://portal.cultureescrow.com/temply/',
+    href: _templyUrl,
     status: 'Live',
     category: 'Templates',
     availability: 'open',
