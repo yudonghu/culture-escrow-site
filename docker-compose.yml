@@ -1,0 +1,50 @@
+services:
+
+  portal:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - traefik_proxy
+      - internal
+    labels:
+      - "traefik.enable=true"
+      # HTTPS
+      - "traefik.http.routers.portal.rule=Host(`portal.${DOMAIN}`)"
+      - "traefik.http.routers.portal.entrypoints=websecure"
+      - "traefik.http.routers.portal.tls.certresolver=letsencrypt"
+      - "traefik.http.services.portal.loadbalancer.server.port=3000"
+      # HTTP → HTTPS redirect
+      - "traefik.http.routers.portal-http.rule=Host(`portal.${DOMAIN}`)"
+      - "traefik.http.routers.portal-http.entrypoints=web"
+      - "traefik.http.routers.portal-http.middlewares=https-redirect"
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  traefik_proxy:
+    external: true
+  internal:
+    internal: true
+
+volumes:
+  postgres_data:

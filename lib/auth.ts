@@ -9,6 +9,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   session: {
     maxAge: 400 * 24 * 60 * 60, // 400 天（浏览器最大限制）
   },
+  // Cookie domain: allows session to be shared across subdomains (e.g. temply.hydenluc.com)
+  cookies: process.env.COOKIE_DOMAIN ? {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: 'lax' as const,
+        path: '/',
+        secure: true,
+        domain: process.env.COOKIE_DOMAIN,
+      },
+    },
+  } : undefined,
   callbacks: {
     ...authConfig.callbacks,
     async jwt({ token, user }) {
