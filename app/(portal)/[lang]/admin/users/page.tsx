@@ -67,6 +67,7 @@ export default async function AdminUsersPage({ params }: { params: Promise<{ lan
             Role
             <select name="role" style={inputStyle}>
               <option value="staff">staff</option>
+              <option value="shipping">shipping</option>
               <option value="admin">admin</option>
             </select>
           </label>

@@ -49,6 +49,19 @@ CREATE TABLE auth.users (
 
 ## Session 读取
 
+## 下游工具认证头
+
+Portal 的 `/api/check-auth` 同时供 Caddy `forward_auth` 使用。认证成功时，它会返回：
+
+- `X-Culture-Escrow-Actor`：用户 email，若无 email 则为用户名；
+- `X-Culture-Escrow-Role`：用户角色，默认 `staff`。
+
+这些响应头只能由 Caddy 的 `forward_auth copy_headers` 转发给受保护的内部工具，用于审计归因；它们不能替代 Portal session 本身，也不应被公网客户端直接信任。
+
+## FedEx 真实操作角色
+
+`shipping` 角色可由管理员在用户管理页分配，用于 FedEx 的真实出单和真实取消。FedEx 生产环境默认只允许 `admin,shipping` 执行这两类操作；普通 `staff` 可登录并使用练习模式、查询和历史记录，但不能触发真实 FedEx 请求。
+
 **Server Component**（admin 页面权限校验）：
 ```typescript
 import { auth } from '@/lib/auth'
