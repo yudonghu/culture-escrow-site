@@ -28,7 +28,7 @@
 ### 工具接入
 - [x] PG17（Live，`portal.cultureescrow.com/pg17`）
 - [x] Temply（Live，`portal.cultureescrow.com/temply/`）
-- [x] FedEx API（Internal Test，占位）
+- [x] FedEx API（Internal Test，Portal 认证入口已开放）
 - [x] Refi A-Screen（Planned，占位）
 
 ### 认证增强
@@ -58,7 +58,7 @@ Portal v1 已全面上线，功能稳定可用。当前重点：
 ## 下一步（待规划）
 
 ### 工具层
-- [ ] FedEx API 工具完成内测，接入 Portal（status → Live）
+- [ ] FedEx API 完成已登录员工走查、role 核对与经批准的真实凭据验证（status → Live）
 - [ ] Refi A-Screen 开发并接入
 
 ### 用户管理

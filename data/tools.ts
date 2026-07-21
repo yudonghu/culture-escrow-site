@@ -22,6 +22,7 @@ export type ToolItem = {
 const _portalBase = process.env.NEXT_PUBLIC_PORTAL_URL || 'https://portal.cultureescrow.com'
 const _templyUrl  = process.env.NEXT_PUBLIC_TEMPLY_URL  || `${_portalBase}/temply/`
 const _pg17Url    = process.env.NEXT_PUBLIC_PG17_URL    || `${_portalBase}/pg17`
+const _fedexUrl   = process.env.NEXT_PUBLIC_FEDEX_URL   || `${_portalBase}/fedex/`
 
 export const tools: ToolItem[] = [
   {
@@ -59,16 +60,16 @@ export const tools: ToolItem[] = [
     name: 'FedEx API',
     slug: 'fedex-api',
     desc: 'Shipping label, cancellation, and tracking related tooling.',
-    href: '#',
+    href: _fedexUrl,
     status: 'Internal Test',
     category: 'Shipping',
-    availability: 'coming-soon',
+    availability: 'open',
     icon: '📦',
-    notes: 'Internal test flow, not yet opened from portal.',
+    notes: 'Portal-authenticated internal test entry. Real FedEx credentials are not enabled yet.',
     summary: 'Supports shipping label generation, status tracking, and cancellation workflows.',
     audience: 'Shipping-related internal operations.',
-    stage: 'Internal testing / not publicly exposed in portal',
-    roadmap: 'Complete portal hookup and clarify operator-facing usage notes.',
+    stage: 'Internal test entry active through the authenticated portal',
+    roadmap: 'Complete staff walkthroughs and approved real-credential validation before changing status to Live.',
   },
   {
     name: 'Refi A-Screen',
