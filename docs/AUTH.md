@@ -28,7 +28,8 @@ CREATE TABLE auth.users (
 
 | role | 权限 |
 |---|---|
-| `staff` | 登录后访问 daily-tools、工具详情页 |
+| `staff` | 登录后访问 daily-tools、内部工具与 FedEx 工作台 |
+| `shipping` | 与 `staff` 相同；保留用于岗位标识和审计归因 |
 | `admin` | 以上 + 访问 `/[lang]/admin/users`，Header 显示 Manage Users 按钮 |
 
 ## 配置文件
@@ -58,9 +59,11 @@ Portal 的 `/api/check-auth` 同时供 Caddy `forward_auth` 使用。认证成�
 
 这些响应头只能由 Caddy 的 `forward_auth copy_headers` 转发给受保护的内部工具，用于审计归因；它们不能替代 Portal session 本身，也不应被公网客户端直接信任。
 
-## FedEx 真实操作角色
+## FedEx 内部员工权限
 
-`shipping` 角色可由管理员在用户管理页分配，用于 FedEx 的真实出单和真实取消。FedEx 生产环境默认只允许 `admin,shipping` 执行这两类操作；普通 `staff` 可登录并使用练习模式、查询和历史记录，但不能触发真实 FedEx 请求。
+2026-07-21 经业务确认，FedEx Sandbox 与 Production 工作台对所有已登录的 Portal 内部员工开放，包括 `staff`、`shipping` 与 `admin`。FedEx 服务使用 `FEDEX_PRODUCTION_ROLES=*` 表示任意已认证角色；`*` 不代表匿名公网访问，因为 Caddy `forward_auth` 与 FedEx 服务端仍会验证 `X-Culture-Escrow-Actor`。`shipping` 角色继续保留用于岗位标识和审计归因，而不是 Production 的必要条件。
+
+FedEx Production 仍需独立显式开关、二次确认、幂等键、限流与审计。未登录请求不能触发任何真实 FedEx 操作。
 
 **Server Component**（admin 页面权限校验）：
 ```typescript
